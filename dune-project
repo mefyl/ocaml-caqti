@@ -1,23 +1,80 @@
 (lang dune 3.9)
+
 (using dune_site 0.1)
+
 (using mdx 0.4)
 
 (name caqti)
 
-(package (name caqti) (sites (lib plugins)))
-(package (name caqti-async) (allow_empty))
-(package (name caqti-driver-mariadb) (allow_empty))
-(package (name caqti-driver-pgx) (allow_empty))
-(package (name caqti-driver-postgresql) (allow_empty))
-(package (name caqti-driver-sqlite3) (allow_empty))
-(package (name caqti-dynload) (allow_empty))
-(package (name caqti-eio) (allow_empty))
-(package (name caqti-lwt) (allow_empty))
-(package (name caqti-mirage) (allow_empty))
-(package (name caqti-tls-async) (allow_empty))
-(package (name caqti-tls-eio) (allow_empty))
-(package (name caqti-tls-lwt) (allow_empty))
-(package (name caqti-tls) (allow_empty))
-(package (name caqti-type-calendar) (allow_empty))
-(package (name caqti-miou) (allow_empty))
-(package (name caqti-tls-miou) (allow_empty))
+(package
+ (name caqti)
+ (depends dune-site ipaddr logs lru lwt-dllist mtime ptime uri)
+ (sites
+  (lib plugins)))
+
+(package
+ (name caqti-async)
+ (allow_empty))
+
+(package
+ (name caqti-driver-mariadb)
+ (allow_empty))
+
+(package
+ (name caqti-driver-pgx)
+ (allow_empty))
+
+(package
+ (name caqti-driver-postgresql)
+ (depends caqti postgresql)
+ (allow_empty))
+
+(package
+ (name caqti-driver-sqlite3)
+ (depends caqti sqlite3)
+ (allow_empty))
+
+(package
+ (name caqti-dynload)
+ (allow_empty))
+
+(package
+ (name caqti-eio)
+ (allow_empty))
+
+(package
+ (name caqti-lwt)
+ (allow_empty)
+ (depends caqti))
+
+(package
+ (name caqti-mirage)
+ (allow_empty))
+
+(package
+ (name caqti-tls-async)
+ (allow_empty))
+
+(package
+ (name caqti-tls-eio)
+ (allow_empty))
+
+(package
+ (name caqti-tls-lwt)
+ (allow_empty))
+
+(package
+ (name caqti-tls)
+ (allow_empty))
+
+(package
+ (name caqti-type-calendar)
+ (allow_empty))
+
+(package
+ (name caqti-miou)
+ (allow_empty))
+
+(package
+ (name caqti-tls-miou)
+ (allow_empty))
